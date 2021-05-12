@@ -15,10 +15,11 @@
 <body>
     <div id="app">React has not rendered yet</div>
     <script type="text/babel">
+        var hello = <h1>Hello World</h1>;
+        var destination = document.getElementById("app");
         ReactDOM.render(
-            <h1>Hello World</h1>,
-            document.getElementById("app")
-        );
+            hello,
+            destination        );
     </script>
 </body>
 </html>
