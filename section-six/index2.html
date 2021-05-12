@@ -10,20 +10,32 @@
     <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
     <!-- BABEL LIBRARY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
-    <title>Map method</title>
+    <title>Map and filter method</title>
 </head>
 <body>
     <div id="app">React has not rendered yet</div>
     <script type="text/babel">
         function FamilyList(props) {
             var siblings = props.siblings;
-            var siblingsListItem = siblings.map(function(person) {
+            var siblingsListItem = siblings.filter(function(person) {
+                return person.female
+            }).map(function(person) {
                 return <div key={person.id}>{person.name}</div>
             })
             return(
                 <div>{siblingsListItem}</div>
             );
         }
+        /*function FamilyList(props) {
+            var siblings = props.siblings;
+            return(
+                <div>{siblings.filter(function(person) {
+                return person.female
+            }).map(function(person) {
+                return <div key={person.id}>{person.name}</div>
+            })}</div>
+            );
+        }*/
         var siblings = [{id: 1, name: 'Chris', female: false}, {id: 2, name: 'Jeff', female: false},
                 {id: 3, name: 'Julie', female: true}, {id: 4, name: 'Jessica', female: true}];
 
