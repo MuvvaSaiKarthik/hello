@@ -10,23 +10,32 @@
     <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
     <!-- BABEL LIBRARY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
-    <title>Props in stateless Components</title>
+    <title>Props in Class Components</title>
 </head>
 <body>
     <div id="app">React has not rendered yet</div>
     <script type="text/babel">
 
-        function Person(props) {
-            return(
-                <h1>Hi, {props.name}</h1>
-            );
-        }
+        class PersonGreeting extends React.Component {
+            render() {
+                var personStyle = {
+                    height : 100,
+                    width : 100,
+                    backgroundColor : this.props.color
+                }
+                return(
+                    <div style={personStyle}>
+                        Hello {this.props.name}
+                    </div>
+                );
+            }
+        } 
         ReactDOM.render(
             <div>
-                <Person name="Rob" />
-                <Person name="Bob" />
-                <Person name="Sarah" />
-                <Person name="Isha" />
+                <PersonGreeting color="red" name="Rob" />
+                <PersonGreeting color="green" name="Bob" />
+                <PersonGreeting color="yellow" name="Sarah" />
+                
             </div>,
             document.getElementById("app")
         );
